@@ -2,7 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 import sqlite3
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Needed for session management with flash messages
+app.secret_key = 'your_secret_key' 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
 JOBS = [
