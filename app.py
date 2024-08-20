@@ -4,7 +4,7 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Needed for session management with flash messages
 
-# Sample job data
+
 JOBS = [
     {'id': 1, 'title': 'Data Analyst', 'location': 'Bengaluru, India', 'salary': 'Rs. 10,00,000'},
     {'id': 2, 'title': 'Data Scientist', 'location': 'Delhi, India', 'salary': 'Rs. 15,00,000'},
