@@ -9,6 +9,8 @@ packages = [{include = "repl_nix_myproject1"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 flask = "^3.0.3"
+flask-wtf = "^1.2.1"
+wtforms = "^3.1.2"
 
 
 [build-system]

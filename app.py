@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 import sqlite3
+from form import RegistrationForm, loginForm
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key' 
+app.secret_key = 'abcd' 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -70,10 +71,19 @@ def signup():
 
     return render_template('signup.html')
 
+@app.route('/register' , methods = ['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash('Account created successfully!', 'success')
+        return redirect(url_for('home'))
+    return render_template('register.html', form=form)
+    
 # Route for the login page (stub for demonstration)
 @app.route('/login')
 def login():
-    return 'Login Page (Not implemented)'
+    form = loginForm()
+    return render_template('login.html', title='login', form=form)
 
 # Route for the homepage
 @app.route("/")
